@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #10b981;
+}
+
+body {
+  font-family: 'Inter', system_ui, sans-serif;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  font-weight: 600;
+}
+
+.calendar-day {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calendar-day:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.calendar-day.today {
+  box-shadow: 0 0 0 3px #10b981;
+}
+
+.modal {
+  animation: modalPop 0.2s ease-out forwards;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.day-square {
+  aspect-ratio: 1 / 1;
+  min-height: 92px;
+}
+
+.work-entry {
+  background: linear-gradient(145deg, #f8fafc, #f1e7ff);
+}
+
+.section-header {
+  font-size: 13px;
+  letter-spacing: -.5px;
+  font-weight: 600;
+  color: #64748b;
+}
+
+.modern-shadow {
+  box-shadow: 0 10px 15px -3px rgb(15 23 42 / 0.08), 
+             0 4px 6px -4px rgb(15 23 42 / 0.08);
+}
+
+.nav-active {
+  background-color: #10b981;
+  color: white;
+  border-radius: 9999px;
+}
+
+.metric-value {
+  font-size: 1.75rem;
+  line-height: 1.1;
+  font-weight: 700;
+  font-feature-settings: "ss02";
+}
+
+.time-input {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+/* Custom scrollbar for admin lists */
+.max-h-\[280px\]::-webkit-scrollbar {
+  width: 6px;
+}
+
+.max-h-\[280px\]::-webkit-scrollbar-thumb {
+  background-color: #3f3f46;
+  border-radius: 3px;
+}
