@@ -253,55 +253,56 @@ export default function RoboGodynyApp() {
         onShowSettings={() => setShowSettingsModal(true)} 
       />
 
-      <div className="max-w-screen-2xl mx-auto px-8 pt-8">
+      <div className="max-w-screen-2xl mx-auto px-4 md:px-8 pt-6 md:pt-8">
         
         {/* USER VIEW - Calendar */}
         {currentUser === 'user' && (
           <div id="calendar-view">
             {/* Header */}
-            <div className="flex items-end justify-between mb-6">
+            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-y-4 mb-6">
               <div>
-                <h1 className="font-display text-5xl font-semibold tracking-tighter">Календар</h1>
-                <p className="text-zinc-400 mt-1">Облік робочих годин • Січень – Грудень 2026</p>
+                <h1 className="font-display text-4xl md:text-5xl font-semibold tracking-tighter">Календар</h1>
+                <p className="text-zinc-400 mt-1 text-sm md:text-base">Облік робочих годин • Січень – Грудень 2026</p>
               </div>
 
               {/* Totals + Month Navigation */}
-              <div className="flex items-center gap-x-8">
-                <div className="flex items-center gap-x-8 bg-zinc-900 border border-zinc-800 rounded-3xl px-8 py-3">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-x-4 lg:gap-x-8">
+                {/* Totals */}
+                <div className="flex items-center gap-x-4 sm:gap-x-8 bg-zinc-900 border border-zinc-800 rounded-3xl px-5 sm:px-8 py-2.5 sm:py-3 w-full sm:w-auto">
                   <div>
-                    <div className="section-header">ГОДИН ЗА МІСЯЦЬ</div>
-                    <div className="metric-value text-emerald-400">{totalHours.toFixed(1)}</div>
+                    <div className="section-header text-[10px] sm:text-xs">ГОДИН ЗА МІСЯЦЬ</div>
+                    <div className="metric-value text-emerald-400 text-2xl sm:text-[1.75rem]">{totalHours.toFixed(1)}</div>
                   </div>
-                  <div className="h-9 w-px bg-zinc-700"></div>
+                  <div className="h-8 sm:h-9 w-px bg-zinc-700"></div>
                   <div>
-                    <div className="section-header">ЗАРОБІТОК</div>
-                    <div className="metric-value text-emerald-400">{totalEarnings.toLocaleString('uk-UA')} ₴</div>
+                    <div className="section-header text-[10px] sm:text-xs">ЗАРобітОк</div>
+                    <div className="metric-value text-emerald-400 text-2xl sm:text-[1.75rem]">{totalEarnings.toLocaleString('uk-UA')} ₴</div>
                   </div>
                 </div>
 
                 {/* Month Navigation */}
-                <div className="flex items-center bg-zinc-900 border border-zinc-800 rounded-3xl p-1.5">
+                <div className="flex items-center bg-zinc-900 border border-zinc-800 rounded-3xl p-1 w-full sm:w-auto">
                   <button 
                     onClick={() => changeMonth(-1)}
-                    className="w-10 h-10 flex items-center justify-center hover:bg-zinc-800 rounded-2xl transition-colors"
+                    className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-zinc-800 rounded-2xl transition-colors"
                   >
-                    <ChevronLeft className="w-5 h-5" />
+                    <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
-                  <div className="px-8 font-semibold text-xl tracking-tight min-w-[180px] text-center">
+                  <div className="px-4 sm:px-6 font-semibold text-base sm:text-xl tracking-tight min-w-[140px] sm:min-w-[180px] text-center">
                     {monthName}
                   </div>
                   <button 
                     onClick={() => changeMonth(1)}
-                    className="w-10 h-10 flex items-center justify-center hover:bg-zinc-800 rounded-2xl transition-colors"
+                    className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center hover:bg-zinc-800 rounded-2xl transition-colors"
                   >
-                    <ChevronRight className="w-5 h-5" />
+                    <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                   </button>
                 </div>
               </div>
             </div>
 
             {/* Calendar Grid */}
-            <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-6 modern-shadow">
+            <div className="bg-zinc-900 border border-zinc-800 rounded-3xl p-3 sm:p-6 modern-shadow">
               {/* Weekdays */}
               <div className="grid grid-cols-7 gap-3 mb-3 px-2">
                 {['ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ', 'НД'].map(day => (

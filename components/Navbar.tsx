@@ -12,7 +12,7 @@ export default function Navbar({ currentUser, onSwitchUser, onShowSettings }: Na
   return (
     <nav className="border-b border-zinc-800 bg-zinc-900">
       <div className="max-w-screen-2xl mx-auto">
-        <div className="px-8 py-4 flex items-center justify-between">
+        <div className="px-4 md:px-8 py-3 md:py-4 flex items-center justify-between">
           <div className="flex items-center gap-x-3">
             <div className="w-10 h-10 bg-emerald-500 rounded-2xl flex items-center justify-center">
               <span className="text-white text-3xl">🕒</span>
@@ -27,25 +27,25 @@ export default function Navbar({ currentUser, onSwitchUser, onShowSettings }: Na
             <div className="flex items-center bg-zinc-900 border border-zinc-800 rounded-3xl p-1">
               <button 
                 onClick={() => onSwitchUser('user')}
-                className={`px-5 py-1.5 text-sm font-medium rounded-3xl flex items-center gap-x-2 transition-colors ${
+                className={`px-3 md:px-5 py-1.5 text-sm font-medium rounded-3xl flex items-center gap-x-1.5 md:gap-x-2 transition-colors ${
                   currentUser === 'user' 
                     ? 'bg-emerald-500 text-white' 
                     : 'hover:bg-zinc-800'
                 }`}
               >
                 <User className="w-4 h-4" />
-                <span>Олександр</span>
+                <span className="hidden sm:inline">Олександр</span>
               </button>
               <button 
                 onClick={() => onSwitchUser('admin')}
-                className={`px-5 py-1.5 text-sm font-medium rounded-3xl flex items-center gap-x-2 transition-colors ${
+                className={`px-3 md:px-5 py-1.5 text-sm font-medium rounded-3xl flex items-center gap-x-1.5 md:gap-x-2 transition-colors ${
                   currentUser === 'admin' 
                     ? 'bg-emerald-500 text-white' 
                     : 'hover:bg-zinc-800'
                 }`}
               >
                 <Shield className="w-4 h-4" />
-                <span>Адмін</span>
+                <span className="hidden sm:inline">Адмін</span>
               </button>
             </div>
             
