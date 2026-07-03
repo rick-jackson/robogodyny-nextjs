@@ -273,20 +273,8 @@ export default function RoboGodynyApp() {
   };
 
   const addDemoData = () => {
-    if (!confirm('Додати тестові записи за січень 2026?')) return;
-
-    const demo = generateDemoEntries();
-    const existingDates = new Set(entries.map(e => e.date));
-    const newDemos = demo.filter(d => !existingDates.has(d.date));
-    
-    if (newDemos.length > 0) {
-      const updated = [...entries, ...newDemos];
-      saveEntries(updated);
-      showToast('Тестові дані додано!');
-    } else {
-      showToast('Тестові дані вже існують');
-    }
-  };
+  showToast('Тестові дані недоступні при використанні Supabase');
+};
 
   const showToast = (message: string) => {
     const toast = document.createElement('div');
